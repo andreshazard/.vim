@@ -11,3 +11,15 @@ function! mappings#cycle_numbering() abort
     set number!<CR>
   endif
 endfunction
+
+
+" Run python tests
+function! mappings#run_python_test()
+    " if the file we have open is the test file
+    if shellescape(expand('%')) =~ "test_"
+        execute  ":! nosetests -v '%'"
+
+    else
+        execute ":! nosetests -v 'test_%'"
+    endif
+endfunction
