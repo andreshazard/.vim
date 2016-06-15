@@ -23,3 +23,11 @@ function! mappings#run_python_test()
         execute ":! nosetests -v 'test_%'"
     endif
 endfunction
+
+
+" Delete definers from sql dump file
+function! mappings#delete_definers()
+     silent! execute "normal! mz:g/DEFINER/d\<CR>'z"
+     echo "done"
+endfunction
+command! DeleteDefiners call DeleteDefiners()
