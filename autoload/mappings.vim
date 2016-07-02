@@ -12,19 +12,6 @@ function! mappings#cycle_numbering() abort
   endif
 endfunction
 
-
-" Run python tests
-function! mappings#run_python_test()
-    " if the file we have open is the test file
-    if shellescape(expand('%')) =~ "test_"
-        execute  ":! nosetests -v '%'"
-
-    else
-        execute ":! nosetests -v 'test_%'"
-    endif
-endfunction
-
-
 " Delete definers from sql dump file
 function! mappings#delete_definers()
      silent! execute "normal! mz:g/DEFINER/d\<CR>'z"
